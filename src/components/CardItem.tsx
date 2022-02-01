@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import React from 'react';
-import { Button, Card, Colors, Paragraph, Title } from 'react-native-paper';
+import { Button, Card, Colors} from 'react-native-paper';
 
 interface Props {
     item: {

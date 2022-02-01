@@ -1,14 +1,10 @@
-import React from 'react';
-import FeedScreen from './src/screens/FeedScreen';
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { NetworkProvider } from 'react-native-offline';
+import { RootScreen as App } from './src/screens/RootScreen';
+import StorybookUIRoot from './storybook';
 
-const queryClient = new QueryClient()
+// Should we show storybook instead of our app?
+//
+// ⚠️ Leave this as `false` when checking into git.
+const SHOW_STORYBOOK = false;
 
-export default function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <FeedScreen />
-    </QueryClientProvider>
-  );
-}
+const UI = SHOW_STORYBOOK && __DEV__ ? StorybookUIRoot : App;
+export default UI;

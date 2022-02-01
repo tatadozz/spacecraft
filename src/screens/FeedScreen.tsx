@@ -1,11 +1,11 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, StatusBar, FlatList, SafeAreaViewBase } from "react-native";
+import { SafeAreaView, StyleSheet, StatusBar, FlatList } from "react-native";
 import { ActivityIndicator, Button, Colors } from "react-native-paper";
-import { useStarships } from "../../hooks/useStarships";
 import CardItem from "../components/CardItem";
 import HeadTitle from "../components/HeadTitle";
+import { useStarships } from "../hooks/useStarships";
 
-const FeedScreen = () => {
+const FeedScreen = ({}) => {
     const { isLoading, isError, data, refetch } = useStarships();
     if (isLoading) {
         return (
