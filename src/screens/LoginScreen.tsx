@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, Touchable, Linking } from 'react-native';
 import React from 'react';
 import { Headline, TextInput, Button, Colors } from 'react-native-paper';
-import Header from '../components/Header';
+import { Routes } from '../../navigation/Routes';
 
 type Props = {};
 
-const LoginScreen = (props: Props) => {
+const LoginScreen = ({navigation}) => {
     const [text, setText] = React.useState("");
     const [pwd, setPwd] = React.useState("");
     const [visible, setVisible] = React.useState(true);
@@ -38,7 +38,7 @@ const LoginScreen = (props: Props) => {
                     <Text style={styles.text}>Login</Text>
                 </Button>
             </View>
-            <Text style={styles.link} onPress={() => Linking.openURL('http://google.com')}>Read Conditions and Terms</Text>
+            <Text style={styles.link} onPress={() => navigation.navigate(Routes.TERMS_SCREEN)}>Read Conditions and Terms</Text>
         </View>
     );
 };
