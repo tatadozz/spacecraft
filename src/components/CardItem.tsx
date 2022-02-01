@@ -1,6 +1,8 @@
 import { Text, StyleSheet } from 'react-native';
 import React from 'react';
 import { Button, Card, Colors} from 'react-native-paper';
+import { Routes } from '../../navigation/Routes';
+import { useNavigation } from '@react-navigation/native';
 
 interface Props {
     item: {
@@ -13,6 +15,10 @@ interface Props {
 
 const CardItem = (props: Props) => {
     console.log(props.item);
+    const {item} = props
+
+    const navigation = useNavigation()
+
     return (
         <Card style={styles.card}>
             <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
@@ -23,7 +29,11 @@ const CardItem = (props: Props) => {
                 <Text style={styles.cardText}>Only for <Text style={styles.price}>{props.item.cost_in_credits} </Text>Credits</Text>
             </Card.Content>
             <Card.Actions>
-                <Button style={styles.buy}><Text style={styles.buyText}>I want it!</Text></Button>
+                <Button style={styles.buy} 
+                onPress={() =>
+                    navigation.navigate(Routes.DETAIL_SCREEN, { item })
+                }>
+            <Text style={styles.buyText}>I want it!</Text></Button>
             </Card.Actions>
         </Card>
     );
