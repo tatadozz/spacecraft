@@ -11,7 +11,7 @@ const MyLoader = (props) => (
         foregroundColor="#ecebeb"
         {...props}
     >
-        <Rect x="10" y="30" rx="0" ry="0" width="300" height="300" />
+        <Rect x="8" y="2" rx="0" ry="0" width="300" height="300" />
     </ContentLoader>
 )
 
