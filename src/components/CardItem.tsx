@@ -10,6 +10,12 @@ interface Props {
         model: string;
         manufacturer: string;
         cost_in_credits: string;
+        hyperdrive_rating: string
+        max_atmosphering_speed: string
+        crew: string
+        passengers: string
+        consumables: string
+        cargo_capacity: string
     }
 }
 

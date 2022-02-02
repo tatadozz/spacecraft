@@ -7,11 +7,9 @@ import TermsScreen from '../src/screens/TermsScreen';
 import DetailScreen from '../src/screens/DetailScreen';
 import FeedScreen from '../src/screens/FeedScreen';
 
-type Props = {};
-
 const Stack = createNativeStackNavigator();
 
-export const Navigator = (props: Props) => {
+export const Navigator = () => {
 
   return (
     <NavigationContainer>

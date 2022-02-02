@@ -1,14 +1,23 @@
-import { SafeAreaView, StyleSheet, Image, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Image, Text, View, TouchableOpacity, ImageBackground } from 'react-native';
 import React from 'react';
-import { Button, Colors, IconButton } from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 
-type Props = {};
+type Props = {
+    route: any,
+    navigation: any
+};
 
-const DetailScreen = (props: Props) => {
-    console.log(props);
+const DetailScreen = ({route, navigation}: Props) => {
     const {
-        name
-    } = props.route.params.item;
+        name,
+        manufacturer,
+        hyperdrive_rating,
+        max_atmosphering_speed,
+        crew,
+        passengers,
+        consumables,
+        cargo_capacity
+    } = route.params.item;
   return (
     <SafeAreaView style={{flex:1}}>
         <View>
@@ -18,21 +27,21 @@ const DetailScreen = (props: Props) => {
                 uri: 'https://picsum.photos/700',
               }}
             />
-            <IconButton style={styles.btn} size={45} icon="arrow-left-circle"></IconButton>
+            <IconButton style={styles.btn} size={45} icon="arrow-left-circle" onPress={() => navigation.goBack()}></IconButton>
         </View>
         <View style={styles.container}>
             <View>
                 <Text style={styles.name}>{name}</Text>
-                <Text style={styles.sub}>Manufacturer</Text>
+                <Text style={styles.sub}>{manufacturer}</Text>
             </View>
             <View>
                 <View style={styles.row}>
                     <IconButton size={24} icon="tools"></IconButton>
-                    <Text style={styles.sub}>Manufacturer</Text>
+                    <Text style={styles.sub}>{hyperdrive_rating}</Text>
                 </View>
                 <View style={styles.row}>
                     <IconButton size={24} icon="tools"></IconButton>
-                    <Text style={styles.sub}>Manufacturer</Text>
+                    <Text style={styles.sub}>{max_atmosphering_speed}</Text>
                 </View>
             </View>
             <View style={styles.opposition}>
@@ -43,10 +52,10 @@ const DetailScreen = (props: Props) => {
                     <Text style={styles.text2}>Cargo capacity</Text>
                 </View>
                 <View style={styles.right}>
-                    <Text style={[styles.tar, styles.text2]}>30</Text>
-                    <Text style={[styles.tar, styles.text2]}>600</Text>
-                    <Text style={[styles.tar, styles.text2]}>1 Year</Text>
-                    <Text style={[styles.tar, styles.text2]}>30000000</Text>
+                    <Text style={[styles.tar, styles.text2]}>{crew}</Text>
+                    <Text style={[styles.tar, styles.text2]}>{passengers}</Text>
+                    <Text style={[styles.tar, styles.text2]}>{consumables}</Text>
+                    <Text style={[styles.tar, styles.text2]}>{cargo_capacity}</Text>
                 </View>
             </View>
         </View>
