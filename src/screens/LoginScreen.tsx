@@ -34,7 +34,7 @@ const LoginScreen = ({navigation}) => {
                     onChangeText={pwd => setPwd(pwd)}
                     right={<TextInput.Icon name={vEye} onPress={() => { setVisible(!visible) }} />}
                 />
-                <Button style={[styles.fields, styles.loginBtn]} icon="train" mode="contained" onPress={() => console.log('Tried to login')}>
+                <Button style={[styles.fields, styles.loginBtn]} icon="train" mode="contained" onPress={() => navigation.navigate(Routes.FEED_SCREEN)}>
                     <Text style={styles.text}>Login</Text>
                 </Button>
             </View>
